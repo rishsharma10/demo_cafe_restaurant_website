@@ -17,20 +17,20 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: 'Down Town Cafe & Bakery | Chandigarh',
+  title: 'Cafe JC | Chandigarh',
   description:
-    'Down Town Cafe & Bakery in Sector 21C, Chandigarh — cozy vibes, handcrafted coffee, wood-fired pizzas, fresh bakes & more. Dine-in, takeaway & no-contact delivery.',
+    'Cafe JC in Sector 10D, Chandigarh — cozy vibes, handcrafted coffee, wood-fired pizzas, fresh bakes & more. Dine-in, takeaway & no-contact delivery.',
   keywords: [
-    'Down Town Cafe',
+    'Cafe JC',
     'cafe in Chandigarh',
     'bakery Chandigarh',
-    'coffee shop Sector 21',
+    'coffee shop Sector 10',
     'pizza pasta Chandigarh',
   ],
   openGraph: {
-    title: 'Down Town Cafe & Bakery | Chandigarh',
+    title: 'Cafe JC | Chandigarh',
     description:
-      'Cozy vibes, handcrafted coffee, wood-fired pizzas & fresh bakes in Sector 21C, Chandigarh.',
+      'Cozy vibes, handcrafted coffee, wood-fired pizzas & fresh bakes in Sector 10D, Chandigarh.',
     type: 'website',
   },
   twitter: { card: 'summary_large_image' },

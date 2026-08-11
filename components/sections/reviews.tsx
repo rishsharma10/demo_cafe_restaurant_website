@@ -12,11 +12,10 @@ export default function Reviews() {
             Guest Love
           </p>
           <h2 className="reveal font-display font-bold text-4xl sm:text-5xl text-espresso leading-tight text-balance">
-            4.3 stars across 774 reviews
+            4.1 stars across 3,005 reviews
           </h2>
           <p className="reveal mt-4 text-mocha/80 text-lg">
-            People say this cafe offers delicious soups, quesadillas, pasta &amp; pizza —
-            with affordable prices, cozy vibe &amp; polite staff.
+            Customers consistently praise this cafe for its fresh food, satisfying sandwiches, and good brownies, complemented by a wide variety of beverages.
           </p>
         </div>
 
@@ -24,14 +23,14 @@ export default function Reviews() {
           {/* Rating breakdown */}
           <div className="reveal lg:sticky lg:top-28 rounded-3xl bg-white p-7 shadow-lg border border-primary/10">
             <div className="flex items-end gap-3">
-              <span className="font-display font-black text-6xl text-espresso leading-none">4.3</span>
+              <span className="font-display font-black text-6xl text-espresso leading-none">4.1</span>
               <div className="pb-1">
                 <div className="flex items-center gap-0.5 text-warning">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-warning" />
                   ))}
                 </div>
-                <p className="text-xs text-mocha font-body mt-1">774 reviews</p>
+                <p className="text-xs text-mocha font-body mt-1">3,005 reviews</p>
               </div>
             </div>
 
@@ -53,9 +52,9 @@ export default function Reviews() {
 
             <div className="mt-6 pt-5 border-t border-border space-y-2">
               {[
-                'Delicious soups, quesadillas, pasta & pizza',
-                'Affordable prices & cozy vibe',
-                'Polite, decent & quick staff',
+                'Tasty pasta & satisfying sandwiches',
+                'Welcoming & aesthetic ambiance',
+                'Pet-friendly options available',
               ].map((t) => (
                 <p key={t} className="flex items-start gap-2 text-sm text-mocha">
                   <BadgeCheck className="h-4 w-4 text-success shrink-0 mt-0.5" />

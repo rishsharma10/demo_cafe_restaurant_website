@@ -75,17 +75,17 @@ export default function Hero() {
               <Star key={i} className="h-3.5 w-3.5 fill-warning" />
             ))}
           </span>
-          4.3 · 774 reviews · Chandigarh
+          4.1 · 3,005 reviews · Chandigarh
         </div>
 
         <h1 className="reveal font-display font-black text-5xl sm:text-7xl lg:text-8xl leading-[1.04] text-balance text-shadow-soft">
-          Down Town
-          <span className="block text-caramel mt-1">Cafe &amp; Bakery</span>
+          Cafe JC
+          <span className="block text-caramel mt-1">Cafe</span>
         </h1>
 
         <p className="reveal mt-5 font-body text-lg sm:text-xl text-cream/85 max-w-2xl mx-auto text-balance">
           Handcrafted coffee, wood-fired pizzas &amp; fresh-baked treats in the
-          heart of Sector 21, Chandigarh. Cozy vibes, honest prices.
+          heart of Sector 10D, Chandigarh. Cozy vibes, honest prices.
         </p>
 
         <div className="reveal mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
@@ -106,12 +106,12 @@ export default function Hero() {
 
         <div className="reveal mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:text-sm text-cream/80 font-body">
           <span className="inline-flex items-center gap-1.5">
-            <MapPin className="h-4 w-4 text-caramel" /> SCO-45, Sector 21C
+            <MapPin className="h-4 w-4 text-caramel" /> Shop No. 2 & 3, Azaadi Rte, 10D, Sector 10
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <Clock className="h-4 w-4 text-caramel" /> Open · Closes 11 pm
+            <Clock className="h-4 w-4 text-caramel" /> Open · Closes 11:30 pm
           </span>
-          <span className="inline-flex items-center gap-1.5">₹200–400 per person</span>
+          <span className="inline-flex items-center gap-1.5">₹400–1,600 per person</span>
         </div>
       </div>
 

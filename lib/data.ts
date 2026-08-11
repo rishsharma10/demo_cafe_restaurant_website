@@ -94,35 +94,35 @@ export const galleryImages = [
 
 export const reviews = [
   {
-    name: 'AJay Mittal',
-    role: 'Local Guide · 168 reviews',
-    initial: 'A',
-    rating: 5,
-    time: 'a year ago',
-    text: 'The main reason you go to any cafe is for food. And hands down, the food at Downtown is so amazing with such affordable prices! We tried pastas, coffee, pizza, honey chilly, crushers and sandwiches.',
-  },
-  {
-    name: 'Simran Vaid',
-    role: 'Local Guide · 43 reviews',
+    name: 'Shikha Bhat',
+    role: 'Local Guide · 23 reviews',
     initial: 'S',
     rating: 5,
-    time: 'a year ago',
-    text: 'The service was decent and quick. Garlic bread was soft and flavourful. Loved the peach ice tea. Positive vibes and nice ambience with tasty cold coffee.',
+    time: '4 months ago',
+    text: 'Visited JC Cafe yesterday with my daughter, and it was such a lovely experience from start to finish. Prices were reasonable as per tast and dish..pasta and pizza 🍕 was yummy 😋.',
   },
   {
-    name: 'Ankur Vinayak',
-    role: 'Local Guide · 471 reviews',
-    initial: 'A',
+    name: 'Ethan Walker',
+    role: 'Local Guide · 25 reviews',
+    initial: 'E',
+    rating: 4,
+    time: '3 months ago',
+    text: 'Cafe JC offers a relaxed and welcoming spot for casual dining in the city. The ambiance is clean and modern, making it a comfortable place to hang out with friends or enjoy a quiet break. Their menu covers a good range of café favorites.',
+  },
+  {
+    name: 'Tushaar Goel',
+    role: 'Local Guide · 222 reviews',
+    initial: 'T',
     rating: 5,
-    time: '2 years ago',
-    text: 'Found this cafe searching 4+ rating cafes nearby and found this nice place. Was very impressive in photos and reviews. And everything positive said was right about it.',
+    time: '6 months ago',
+    text: 'Amazing food and excellent service! Everything we ordered was fresh, flavorful, and delicious. The staff was friendly, attentive, and made us feel very welcome. JC Cafe is a great spot and definitely worth a visit. Highly recommend!',
   },
 ];
 
 export const ratingBreakdown = [
-  { stars: 5, count: 62 },
-  { stars: 4, count: 24 },
-  { stars: 3, count: 9 },
-  { stars: 2, count: 3 },
-  { stars: 1, count: 2 },
+  { stars: 5, count: 52 },
+  { stars: 4, count: 28 },
+  { stars: 3, count: 12 },
+  { stars: 2, count: 5 },
+  { stars: 1, count: 3 },
 ];

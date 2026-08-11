@@ -40,7 +40,7 @@ export default function Visit() {
                 <div>
                   <p className="font-display font-bold text-espresso">Address</p>
                   <p className="text-mocha/85 leading-snug">
-                    SCO-45, Sector 21C, Sector 21, Chandigarh, 160022
+                    Shop No. 2 & 3, Azaadi Rte, 10D, Sector 10, Chandigarh, 160011
                   </p>
                   <p className="text-xs text-mocha/60 mt-1">Plus Code: PQGG+GM Chandigarh</p>
                 </div>
@@ -52,8 +52,8 @@ export default function Visit() {
                 </span>
                 <div>
                   <p className="font-display font-bold text-espresso">Reservations</p>
-                  <a href="tel:+91172517777" className="text-mocha/85 hover:text-primary transition-colors">
-                    0172 517 7777
+                  <a href="tel:+911724630666" className="text-mocha/85 hover:text-primary transition-colors">
+                    0172 463 0666
                   </a>
                 </div>
               </div>
@@ -104,7 +104,7 @@ export default function Visit() {
                 Get Directions
               </a>
               <a
-                href="tel:+91172517777"
+                href="tel:+911724630666"
                 className="flex-1 inline-flex items-center justify-center gap-2 rounded-full border border-primary/30 text-primary px-5 py-3 text-sm font-bold hover:bg-primary/5 transition-colors"
               >
                 <Phone className="h-4 w-4" />
@@ -116,8 +116,8 @@ export default function Visit() {
           {/* Map */}
           <div className="reveal rounded-3xl overflow-hidden shadow-lg border border-primary/10 min-h-[360px] bg-latte">
             <iframe
-              title="Down Town Cafe & Bakery location map"
-              src="https://www.google.com/maps?q=SCO-45,+Sector+21C,+Chandigarh+160022&output=embed"
+              title="Cafe JC location map"
+              src="https://www.google.com/maps?q=Cafe+JC,+Sector+10,+Chandigarh&output=embed"
               className="w-full h-full min-h-[360px]"
               style={{ border: 0 }}
               loading="lazy"

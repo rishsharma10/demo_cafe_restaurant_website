@@ -69,7 +69,7 @@ export default function About() {
               A cozy corner where coffee, food &amp; good company meet
             </h2>
             <p className="reveal mt-5 text-lg text-mocha/90 leading-relaxed">
-              Tucked into SCO-45, Sector 21C, Down Town Cafe &amp; Bakery has
+              Tucked into Shop No. 2 & 3, Azaadi Rte, 10D, Sector 10, Cafe JC has
               become a neighbourhood favourite for its affordable, flavourful
               food and warm, unhurried ambience. From hand-pulled cappuccinos to
               wood-fired pizzas and brownies fresh out of the oven — everything

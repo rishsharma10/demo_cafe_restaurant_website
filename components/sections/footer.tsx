@@ -3,8 +3,8 @@ import { Coffee, Instagram, Facebook, Phone, MapPin, Mail, ArrowUp } from 'lucid
 const socials = [
   { icon: Instagram, label: 'Instagram', href: '#' },
   { icon: Facebook, label: 'Facebook', href: '#' },
-  { icon: Mail, label: 'Email', href: 'mailto:hello@downtowncafe.in' },
-  { icon: Phone, label: 'Phone', href: 'tel:+91172517777' },
+  { icon: Mail, label: 'Email', href: 'mailto:hello@cafejc.in' },
+  { icon: Phone, label: 'Phone', href: 'tel:+911724630666' },
 ];
 
 export default function Footer() {
@@ -22,18 +22,18 @@ export default function Footer() {
                 <Coffee className="h-5 w-5" />
               </span>
               <span className="leading-tight">
-                <span className="block font-display font-bold text-xl text-cream">Down Town</span>
+                <span className="block font-display font-bold text-xl text-cream">Cafe JC</span>
                 <span className="block text-[11px] uppercase tracking-[0.22em] text-caramel font-body font-bold">
-                  Cafe &amp; Bakery
+                  Cafe
                 </span>
               </span>
             </div>
             <p className="mt-4 text-cream/70 text-sm leading-relaxed max-w-xs">
-              A cozy corner in Sector 21, Chandigarh for handcrafted coffee,
+              A cozy corner in Sector 10D, Chandigarh for handcrafted coffee,
               wood-fired pizzas &amp; fresh-baked treats. Cozy vibes, honest prices.
             </p>
             <p className="mt-4 font-display text-caramel text-lg" lang="pa">
-              ਡਾਊਨ ਟਾਊਨ ਕੈਫੇ &amp; ਬੇਕਰੀ
+              ਬੰਬਈ ਚਾਪਸਵਟਕਸ
             </p>
           </div>
 
@@ -65,11 +65,11 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-cream/70">
               <li className="flex gap-2.5">
                 <MapPin className="h-4 w-4 text-caramel shrink-0 mt-0.5" />
-                SCO-45, Sector 21C, Chandigarh, 160022
+                Shop No. 2 & 3, Azaadi Rte, 10D, Sector 10, Chandigarh, 160011
               </li>
               <li className="flex gap-2.5">
                 <Phone className="h-4 w-4 text-caramel shrink-0 mt-0.5" />
-                <a href="tel:+91172517777" className="hover:text-caramel transition-colors">0172 517 7777</a>
+                <a href="tel:+911724630666" className="hover:text-caramel transition-colors">0172 463 0666</a>
               </li>
             </ul>
 
@@ -90,7 +90,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-6 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-cream/50 text-center sm:text-left">
-            © {new Date().getFullYear()} Down Town Cafe &amp; Bakery · Chandigarh. All rights reserved.
+            © {new Date().getFullYear()} Cafe JC · Chandigarh. All rights reserved.
           </p>
           <a
             href="#top"

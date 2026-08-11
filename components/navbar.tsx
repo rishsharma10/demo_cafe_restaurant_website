@@ -35,10 +35,10 @@ export default function Navbar() {
           </span>
           <span className="leading-tight">
             <span className="block font-display font-bold text-lg sm:text-xl text-espresso tracking-tight">
-              Down Town
+              Cafe JC
             </span>
             <span className="block text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-mocha/80 font-body font-bold">
-              Cafe &amp; Bakery
+              Cafe
             </span>
           </span>
         </a>
