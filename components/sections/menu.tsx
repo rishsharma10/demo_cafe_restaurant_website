@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { menuCategories } from '@/lib/data';
 import { Star, Plus } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 export default function Menu() {
   const [active, setActive] = useState(menuCategories[0].id);
@@ -52,20 +54,28 @@ export default function Menu() {
         </p>
 
         {/* Product cards */}
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {current.items.map((item, i) => (
-            <article
-              key={item.name}
-              className="reveal group relative overflow-hidden rounded-2xl bg-white/[0.04] border border-cream/10 hover:border-caramel/40 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-black/40"
-              style={{ transitionDelay: `${i * 50}ms` }}
-            >
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={active}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
+          >
+            {current.items.map((item, i) => (
+              <Link
+                href={`/product/${item.id}`}
+                key={item.id || item.name}
+                className="group relative flex flex-col overflow-hidden rounded-3xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/10 hover:border-caramel/50 hover:from-white/[0.15] hover:to-white/[0.08] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)]"
+              >
               {/* Image */}
-              <div className="relative h-44 sm:h-48 overflow-hidden">
+              <div className="relative h-56 sm:h-64 overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.name}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/30 to-transparent" />
                 {item.tag && (
@@ -80,30 +90,38 @@ export default function Menu() {
               </div>
 
               {/* Body */}
-              <div className="p-4">
-                <h3 className="font-display font-bold text-xl text-cream group-hover:text-caramel transition-colors">
-                  {item.name}
-                </h3>
-                <p className="mt-1 text-sm text-cream/65 leading-snug min-h-[2.5rem]">
+              <div className="p-5 sm:p-6 flex flex-col flex-grow">
+                <div className="flex justify-between items-start gap-4">
+                  <h3 className="font-display font-bold text-2xl text-cream group-hover:text-caramel transition-colors">
+                    {item.name}
+                  </h3>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setAddedItem(item.name);
+                    }}
+                    aria-label={`Add ${item.name} to order`}
+                    className="shrink-0 grid place-items-center h-10 w-10 rounded-full bg-caramel/20 text-caramel hover:bg-caramel hover:text-espresso hover:scale-110 transition-all duration-300"
+                  >
+                    <Plus className="h-5 w-5" />
+                  </button>
+                </div>
+                <p className="mt-2 text-sm text-cream/70 leading-relaxed min-h-[3rem]">
                   {item.desc}
                 </p>
-                <button
-                  type="button"
-                  onClick={() => setAddedItem(item.name)}
-                  aria-label={`Add ${item.name} to order`}
-                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-caramel hover:text-cream transition-colors group/btn"
-                >
-                  <span className="grid place-items-center h-7 w-7 rounded-full bg-caramel/15 group-hover/btn:bg-caramel group-hover/btn:text-espresso transition-all duration-300">
-                    <Plus className="h-3.5 w-3.5" />
-                  </span>
-                  {addedItem === item.name ? 'Added to order' : 'Add to order'}
-                </button>
+                {addedItem === item.name && (
+                  <p className="mt-3 text-xs font-bold tracking-wide text-caramel uppercase">
+                    Added to order
+                  </p>
+                )}
               </div>
-            </article>
-          ))}
-        </div>
+              </Link>
+            ))}
+        </motion.div>
+        </AnimatePresence>
 
-        <p className="reveal mt-10 text-center text-cream/50 text-sm">
+        <p className="mt-10 text-center text-cream/50 text-sm">
           Prices are indicative &amp; may vary. Last updated by visitors a year ago.
         </p>
       </div>

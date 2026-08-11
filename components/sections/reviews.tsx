@@ -97,10 +97,12 @@ export default function Reviews() {
               <p className="font-display font-bold text-2xl">Visited us recently?</p>
               <p className="text-cream/80 mt-1">We&apos;d love to hear what you thought.</p>
               <a
-                href="#visit"
+                href="https://search.google.com/local/writereview?placeid=ChIJN1t_tDeuEmsRUsoyG83frY4" // Placeholder ID, ideally needs to be actual Place ID
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex mt-4 items-center gap-2 rounded-full bg-caramel text-espresso px-6 py-2.5 text-sm font-bold hover:bg-cream transition-colors"
               >
-                Write a Review
+                Write a Review on Google
               </a>
             </div>
           </div>
