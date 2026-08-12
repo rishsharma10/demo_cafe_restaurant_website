@@ -2,184 +2,163 @@
 
 import { useState } from 'react';
 import { menuCategories } from '@/lib/data';
-import { Star, Plus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+
+// Category icons as simple SVG paths
+const categoryIcons: Record<string, string> = {
+  coffee: 'M17 8h1a4 4 0 0 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8zm4-5a2 2 0 0 0-2 2v3h12V5a2 2 0 0 0-2-2H7z',
+  shakes: 'M9 2h6l1 4H8L9 2zM8 6v14a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6M5 6h14',
+  mains: 'M3 11l19-9-9 19-2-8-8-2z',
+  bites: 'M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z',
+  bakes: 'M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z',
+};
 
 export default function Menu() {
   const [active, setActive] = useState(menuCategories[0].id);
   const [addedItem, setAddedItem] = useState<string | null>(null);
-  const [activeMood, setActiveMood] = useState<string | null>(null);
-  
-  const current = menuCategories.find((c) => c.id === active) ?? menuCategories[0];
-  const allItems = menuCategories.flatMap(c => c.items);
-  
-  const aiMoods = [
-    { id: 'energy', label: '⚡ Need Energy', desc: 'AI Suggestion: High caffeine and a quick sugar rush to keep you moving.', items: ['cold-coffee', 'kitkat-crunch-shake', 'peri-peri-pizza'] },
-    { id: 'cozy', label: '🔥 Cozy Date', desc: 'AI Suggestion: Perfect for sharing and warming up on a chilly evening.', items: ['cappuccino', 'cheese-burst-pizza', 'chocolate-oreo-shake'] },
-    { id: 'light', label: '🥗 Healthy & Light', desc: 'AI Suggestion: Fresh, crisp, and refreshing choices without the heavy calories.', items: ['iced-americano', 'watermelon-mint-cooler', 'arrabbiata-pasta'] }
-  ];
 
-  const currentMoodObj = aiMoods.find(m => m.id === activeMood);
-  const displayedItems = activeMood && currentMoodObj
-    ? currentMoodObj.items.map(id => allItems.find(i => i.id === id)!).filter(Boolean)
-    : current.items;
+  const current = menuCategories.find((c) => c.id === active) ?? menuCategories[0];
 
   return (
-    <section id="menu" className="relative py-24 sm:py-32 bg-espresso overflow-hidden">
-      {/* Decorative beans */}
-      <div className="absolute inset-0 opacity-[0.06] pointer-events-none" aria-hidden>
-        <div className="absolute top-10 left-8 h-40 w-28 rounded-full bg-caramel blur-3xl" />
-        <div className="absolute bottom-10 right-8 h-52 w-40 rounded-full bg-primary blur-3xl" />
+    <section id="menu" className="relative py-20 sm:py-28 overflow-hidden" style={{ background: '#f5f0e8' }}>
+      {/* Organic blob decorations */}
+      <div className="absolute -top-32 -right-32 w-96 h-96 opacity-20 pointer-events-none" aria-hidden>
+        <svg viewBox="0 0 400 400" className="w-full h-full fill-[#5c6b3a]">
+          <path d="M300,150 C350,100 380,200 350,280 C320,360 220,380 160,340 C100,300 80,220 100,160 C120,100 180,60 240,70 C270,75 260,190 300,150Z"/>
+        </svg>
+      </div>
+      <div className="absolute -bottom-20 -left-20 w-72 h-72 opacity-10 pointer-events-none" aria-hidden>
+        <svg viewBox="0 0 400 400" className="w-full h-full fill-[#3d2b1f]">
+          <path d="M220,80 C280,60 340,120 360,200 C380,280 320,360 240,370 C160,380 80,320 60,240 C40,160 80,80 140,70 C170,65 180,95 220,80Z"/>
+        </svg>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="text-center max-w-2xl mx-auto">
-          <p className="reveal text-xs font-bold uppercase tracking-[0.25em] text-caramel mb-3">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 text-[#5c6b3a] font-bold text-xs tracking-[0.3em] uppercase mb-4">
+            <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-[#5c6b3a] stroke-2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/>
+            </svg>
             Our Menu
-          </p>
-          <h2 className="reveal font-display font-bold text-4xl sm:text-5xl text-cream leading-tight text-balance">
-            Crafted with love, priced for everyone
+          </div>
+          <h2 className="font-display font-bold text-4xl sm:text-5xl text-[#2c1f12] leading-tight mb-4">
+            Crafted with Love,<br/>Priced for Everyone
           </h2>
-          <p className="reveal mt-4 text-cream/70 text-lg">
-            ₹200–400 per person · reported by 91 people
+          <p className="text-[#6b5744] text-lg max-w-md mx-auto">
+            ₹140–₹360 per item · Fresh daily · Honest ingredients
           </p>
         </div>
 
-        {/* AI Mood Bar */}
-        <div className="mt-8 max-w-3xl mx-auto bg-gradient-to-r from-espresso via-espresso/90 to-espresso border border-caramel/30 rounded-2xl p-4 shadow-xl">
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <div className="flex items-center gap-2 text-caramel">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
-              <span className="font-bold text-sm uppercase tracking-widest">What are you craving?</span>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {aiMoods.map((mood) => (
-                <button
-                  key={mood.id}
-                  onClick={() => {
-                    setActiveMood(activeMood === mood.id ? null : mood.id);
-                  }}
-                  className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all border ${
-                    activeMood === mood.id
-                      ? 'bg-caramel text-espresso border-caramel scale-105'
-                      : 'bg-white/5 text-cream border-cream/20 hover:bg-white/10'
-                  }`}
-                >
-                  {mood.label}
-                </button>
-              ))}
-            </div>
-          </div>
+        {/* Category Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
+          {menuCategories.map((c) => (
+            <button
+              key={c.id}
+              onClick={() => setActive(c.id)}
+              className={`relative rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300 border ${
+                active === c.id
+                  ? 'bg-[#2c1f12] text-[#f5f0e8] border-[#2c1f12] shadow-lg scale-105'
+                  : 'bg-white/60 text-[#2c1f12] border-[#2c1f12]/20 hover:bg-white hover:border-[#2c1f12]/40'
+              }`}
+            >
+              {c.label}
+            </button>
+          ))}
         </div>
 
-        {/* Tabs */}
-        {!activeMood && (
-          <div className="reveal mt-8 flex flex-wrap justify-center gap-2 sm:gap-3">
-            {menuCategories.map((c) => (
-              <button
-                key={c.id}
-                onClick={() => setActive(c.id)}
-                className={`rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300 border ${
-                  active === c.id
-                    ? 'bg-caramel text-espresso border-caramel shadow-lg scale-105'
-                    : 'bg-white/5 text-cream/80 border-cream/15 hover:bg-white/10 hover:text-cream'
-                }`}
-              >
-                {c.label}
-              </button>
-            ))}
-          </div>
-        )}
+        <p className="text-center text-[#6b5744] italic text-sm mb-10 font-body">{current.blurb}</p>
 
-        <p className="mt-5 text-center text-cream/60 text-sm italic font-display min-h-[1.5rem]">
-          {activeMood && currentMoodObj ? currentMoodObj.desc : current.blurb}
-        </p>
-
-        {/* Product cards */}
+        {/* Product Cards Grid */}
         <AnimatePresence mode="wait">
-          <motion.div 
-            key={activeMood || active}
+          <motion.div
+            key={active}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.35 }}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
           >
-            {displayedItems.map((item, i) => (
-              <Link
-                href={`/product/${item.id}`}
-                key={item.id || item.name}
-                className="group relative flex flex-col overflow-hidden rounded-3xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/10 transition-all duration-500 hover:-translate-y-2"
+            {current.items.map((item, i) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, delay: i * 0.07 }}
               >
-              {/* Neon Glow Border */}
-              <div className="absolute inset-0 z-50 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl border-2 border-caramel shadow-[inset_0_0_20px_rgba(202,156,104,0.6),0_0_20px_rgba(202,156,104,0.6)]" />
-
-              {/* Image */}
-              <div 
-                id={item.id === 'hazelnut-frappe' ? 'hazelnut-target' : undefined}
-                className={`relative h-56 sm:h-64 overflow-hidden ${item.id === 'hazelnut-frappe' ? 'bg-[#f1ede9]' : ''}`}
-              >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/30 to-transparent" />
-                {item.tag && (
-                  <span className="absolute top-3 left-3 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide text-espresso bg-caramel px-2.5 py-1 rounded-full shadow-md">
-                    <Star className="h-3 w-3 fill-espresso text-espresso" />
-                    {item.tag}
-                  </span>
-                )}
-                <span className="absolute top-3 right-3 font-display font-bold text-lg text-cream bg-espresso/70 backdrop-blur px-3 py-1 rounded-full">
-                  {item.price}
-                </span>
-              </div>
-
-              {/* Body */}
-              <div className="p-5 sm:p-6 flex flex-col flex-grow">
-                <div className="flex justify-between items-start gap-4">
-                  <h3 className="font-display font-bold text-2xl text-cream group-hover:text-caramel transition-colors">
-                    {item.name}
-                  </h3>
-                  <button
-                    type="button"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setAddedItem(item.name);
-                    }}
-                    aria-label={`Add ${item.name} to order`}
-                    className="shrink-0 grid place-items-center h-10 w-10 rounded-full bg-caramel/20 text-caramel hover:bg-caramel hover:text-espresso hover:scale-110 transition-all duration-300"
-                  >
-                    <Plus className="h-5 w-5" />
-                  </button>
-                </div>
-                {item.popularity && (
-                  <div className="mt-2 inline-block">
-                    <span className="text-xs font-bold text-[#ff6b6b] bg-[#ff6b6b]/10 px-2 py-0.5 rounded border border-[#ff6b6b]/20">
-                      {item.popularity}
-                    </span>
+                <Link
+                  href={`/product/${item.id}`}
+                  className="group block bg-white rounded-[2rem] overflow-hidden hover:-translate-y-2 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(44,31,18,0.15)] relative"
+                >
+                  {/* Category icon badge */}
+                  <div className="absolute top-4 left-4 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm border border-[#e8e0d4]">
+                    <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-[#5c6b3a] stroke-[1.5]" strokeLinecap="round" strokeLinejoin="round">
+                      <path d={categoryIcons[active] || categoryIcons.coffee}/>
+                    </svg>
                   </div>
-                )}
-                <p className="mt-2 text-sm text-cream/70 leading-relaxed min-h-[3rem]">
-                  {item.desc}
-                </p>
-                {addedItem === item.name && (
-                  <p className="mt-3 text-xs font-bold tracking-wide text-caramel uppercase">
-                    Added to order
-                  </p>
-                )}
-              </div>
-              </Link>
+
+                  {/* Tag badge */}
+                  {item.tag && (
+                    <div className="absolute top-4 right-4 z-10 bg-[#5c6b3a] text-white text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full">
+                      {item.tag}
+                    </div>
+                  )}
+
+                  {/* Image - organic blob shape */}
+                  <div className="relative h-52 overflow-hidden bg-[#f0ebe1]">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-5">
+                    <h3 className="font-display font-bold text-[#2c1f12] text-lg leading-tight mb-1 group-hover:text-[#5c6b3a] transition-colors">
+                      {item.name}
+                    </h3>
+                    <p className="text-[#6b5744] text-sm leading-relaxed mb-4 line-clamp-2">
+                      {item.desc}
+                    </p>
+
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-[#2c1f12] text-lg">{item.price}</span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setAddedItem(item.name);
+                          setTimeout(() => setAddedItem(null), 2000);
+                        }}
+                        aria-label={`Add ${item.name} to order`}
+                        className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 font-bold text-xl shadow-md ${
+                          addedItem === item.name
+                            ? 'bg-[#5c6b3a] text-white scale-90'
+                            : 'bg-[#2c1f12] text-white hover:bg-[#5c6b3a] hover:scale-110'
+                        }`}
+                      >
+                        {addedItem === item.name ? '✓' : '+'}
+                      </button>
+                    </div>
+
+                    {item.popularity && (
+                      <p className="mt-2 text-[10px] font-bold text-[#5c6b3a] tracking-wide">{item.popularity}</p>
+                    )}
+                  </div>
+                </Link>
+              </motion.div>
             ))}
-        </motion.div>
+          </motion.div>
         </AnimatePresence>
 
-        <p className="mt-10 text-center text-cream/50 text-sm">
-          Prices are indicative &amp; may vary. Last updated by visitors a year ago.
-        </p>
+        {/* Bottom CTA */}
+        <div className="mt-16 text-center">
+          <p className="text-[#6b5744] text-sm mb-4">Prices may vary · Last updated recently</p>
+        </div>
       </div>
     </section>
   );
