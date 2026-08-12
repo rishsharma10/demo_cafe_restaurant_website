@@ -113,7 +113,10 @@ export default function Menu() {
                 className="group relative flex flex-col overflow-hidden rounded-3xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/10 hover:border-caramel/50 hover:from-white/[0.15] hover:to-white/[0.08] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)]"
               >
               {/* Image */}
-              <div className="relative h-56 sm:h-64 overflow-hidden">
+              <div 
+                id={item.id === 'hazelnut-frappe' ? 'hazelnut-target' : undefined}
+                className={`relative h-56 sm:h-64 overflow-hidden ${item.id === 'hazelnut-frappe' ? 'bg-[#f1ede9]' : ''}`}
+              >
                 <img
                   src={item.image}
                   alt={item.name}

@@ -32,7 +32,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 inset-x-0 z-[200] transition-all duration-500 ${
         scrolled || !isHome ? 'glass shadow-[0_8px_30px_-12px_rgba(60,30,10,0.25)]' : 'bg-transparent'
       }`}
       onMouseLeave={() => setActiveDropdown(null)}

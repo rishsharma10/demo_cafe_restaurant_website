@@ -69,8 +69,8 @@ export default function SignatureDrinks() {
   });
 
   return (
-    <section ref={containerRef} className="relative h-[300vh] bg-[#f1ede9] text-[#1a1a1a]">
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col md:flex-row max-w-[1600px] mx-auto">
+    <section ref={containerRef} className="relative z-50 h-[400vh] bg-[#f1ede9] text-[#1a1a1a]">
+      <div className="sticky top-0 h-screen w-full flex flex-col md:flex-row max-w-[1600px] mx-auto">
         
         {/* Global Header */}
         <div className="absolute top-8 left-8 sm:top-12 sm:left-12 z-20 pointer-events-none">
@@ -82,17 +82,17 @@ export default function SignatureDrinks() {
         {/* Left Side: Content */}
         <div className="relative w-full md:w-1/2 h-1/2 md:h-full flex items-center p-8 sm:p-12 md:pl-24 z-10 pt-24 md:pt-0">
           {signatureDrinks.map((drink, index) => {
-            const start = index * (1 / signatureDrinks.length);
-            const end = (index + 1) * (1 / signatureDrinks.length);
+            const start = index * 0.25;
+            const end = (index + 1) * 0.25;
             const opacity = useTransform(
               smoothProgress,
-              [start - 0.15, start + 0.1, end - 0.1, end + 0.15],
+              [start - 0.1, start + 0.05, end - 0.05, end + 0.1],
               [0, 1, 1, 0]
             );
 
             const y = useTransform(
               smoothProgress,
-              [start - 0.15, start + 0.1, end - 0.1, end + 0.15],
+              [start - 0.1, start + 0.05, end - 0.05, end + 0.1],
               [100, 0, 0, -100]
             );
 
@@ -174,23 +174,26 @@ export default function SignatureDrinks() {
 
           {/* Central Images */}
           {signatureDrinks.map((drink, index) => {
-            const start = index * (1 / signatureDrinks.length);
-            const end = (index + 1) * (1 / signatureDrinks.length);
+            const start = index * 0.25;
+            const end = (index + 1) * 0.25;
             const opacity = useTransform(
               smoothProgress,
-              [start - 0.15, start + 0.1, end - 0.1, end + 0.15],
+              // For the 3rd drink, fade it out early (0.72) so the overlay can seamlessly take over
+              drink.id === "03" 
+                ? [start - 0.1, start + 0.05, 0.72, 0.75] 
+                : [start - 0.1, start + 0.05, end - 0.05, end + 0.1],
               [0, 1, 1, 0]
             );
 
             const y = useTransform(
               smoothProgress,
-              [start - 0.15, start + 0.1, end - 0.1, end + 0.15],
+              [start - 0.1, start + 0.05, end - 0.05, end + 0.1],
               [100, 0, 0, -100]
             );
 
             const rotate = useTransform(
               smoothProgress,
-              [start - 0.15, start + 0.1, end - 0.1, end + 0.15],
+              [start - 0.1, start + 0.05, end - 0.05, end + 0.1],
               [-20, 0, 5, 25]
             );
 
@@ -232,6 +235,42 @@ export default function SignatureDrinks() {
             );
           })}
         </div>
+        {/* 3D Flying Cup Overlay */}
+        <motion.div
+          className="absolute inset-0 pointer-events-none z-[100] flex flex-col md:flex-row"
+          style={{
+            // Fade in the overlay right as the scroll reaches the end of the 3rd slide
+            opacity: useTransform(
+              smoothProgress,
+              [0.72, 0.75, 0.8],
+              [0, 1, 1]
+            )
+          }}
+        >
+           {/* Empty spacer for the left column (text side) */}
+           <div className="hidden md:block w-1/2 h-full" />
+           
+           {/* Right column container exactly matching the visuals column */}
+           <div className="w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center origin-center">
+             <motion.div 
+               className="relative aspect-[3/4] flex items-center justify-center origin-center"
+               style={{
+                 width: "24rem", // matches md:w-96
+                 scale: useTransform(smoothProgress, [0.75, 1], [1, 0.9]),
+                 y: useTransform(smoothProgress, [0.75, 1], [0, 800]),
+                 // Need to move it from the right column to the left column (approx -50vw - a bit more)
+                 x: useTransform(smoothProgress, [0.75, 1], [0, -950]), 
+                 rotate: useTransform(smoothProgress, [0.75, 1], [0, -5]),
+               }}
+             >
+               <img 
+                 src="/images/media__1786443680876.png" 
+                 alt="Hazelnut"
+                 className="w-full h-full object-contain filter drop-shadow-2xl scale-110 mix-blend-multiply"
+               />
+             </motion.div>
+           </div>
+        </motion.div>
       </div>
     </section>
   );

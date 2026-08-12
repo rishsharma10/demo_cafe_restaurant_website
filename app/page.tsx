@@ -28,8 +28,8 @@ export default function Home() {
       <ArtOfRoast />
       <About />
       <SignatureDrinks />
-      <Menu />
       <CozyCorners />
+      <Menu />
       <Gallery />
       <Reviews />
       <InstagramFeed />

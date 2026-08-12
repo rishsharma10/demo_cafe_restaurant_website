@@ -43,6 +43,11 @@ export const metadata: Metadata = {
     url: 'https://vidhyonix.com'
   },
   twitter: { card: 'summary_large_image' },
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
+  metadataBase: new URL('https://vidhyonix.com'),
 };
 
 export default function RootLayout({

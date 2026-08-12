@@ -17,8 +17,8 @@ export default function CozyCorners() {
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
 
   return (
-    <section 
-      ref={containerRef} 
+    <section
+      ref={containerRef}
       className="relative min-h-[90vh] bg-espresso text-cream overflow-hidden flex items-center py-20"
     >
       <div className="absolute inset-0 z-0">
@@ -31,10 +31,10 @@ export default function CozyCorners() {
         />
       </div>
 
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 relative z-20 flex flex-col md:flex-row items-center gap-12 md:gap-24">
-        <motion.div 
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 relative z-20 flex flex-col md:flex-row-reverse items-center gap-12 md:gap-24">
+        <motion.div
           style={{ opacity, y: y2 }}
-          className="flex-1 space-y-6 md:pr-10"
+          className="flex-1 space-y-6 md:pl-10"
         >
           <span className="font-cursive text-caramel text-3xl md:text-5xl -rotate-2 inline-block">
             Find your favorite spot...
@@ -47,19 +47,16 @@ export default function CozyCorners() {
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           style={{ y: y1, rotate: -3 }}
           className="flex-1 relative hidden md:block"
         >
-          <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-caramel/20 bg-espresso">
-            <img 
-              src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1200&auto=format&fit=crop"
-              alt="Steaming coffee and book"
-              className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-700"
-            />
+          <div className="relative rounded-2xl overflow-hidden aspect-[4/3] w-full max-w-md shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-caramel/20 bg-espresso/50 backdrop-blur-sm flex items-end">
             <div className="absolute inset-0 bg-gradient-to-t from-espresso via-transparent to-transparent opacity-80" />
-            <div className="absolute bottom-6 left-6 font-cursive text-3xl text-caramel">
-              Perfect pairs.
+            <div className="absolute bottom-6 left-6 pr-6 font-cursive text-xl md:text-2xl text-caramel z-10 leading-relaxed drop-shadow-md">
+              “Some love stories are written in the stars, but the deepest ones are brewed in coffee slowly, warmly, and with every sip carrying a little piece of your heart.”
+
+
             </div>
           </div>
         </motion.div>
