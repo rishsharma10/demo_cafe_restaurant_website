@@ -181,10 +181,10 @@ export default function TableBookingBot() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 flex items-center justify-center gap-2 bg-espresso text-cream px-5 py-4 rounded-full shadow-2xl transition-all duration-300 ${isOpen ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100'}`}
+        className={`fixed bottom-24 right-4 md:bottom-6 md:right-6 z-50 flex items-center justify-center gap-2 bg-espresso text-cream px-4 py-3 md:px-5 md:py-4 rounded-full shadow-2xl transition-all duration-300 ${isOpen ? 'opacity-0 pointer-events-none translate-y-10' : 'opacity-100'}`}
       >
         <Sparkles className="h-5 w-5 text-accent" />
-        <span className="font-display font-bold">Book a Table</span>
+        <span className="font-display font-bold text-sm md:text-base">Book a Table</span>
       </motion.button>
 
       {/* Chat Window Container */}

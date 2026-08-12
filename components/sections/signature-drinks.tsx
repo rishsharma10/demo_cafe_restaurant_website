@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const signatureDrinks = [
@@ -67,6 +67,14 @@ export default function SignatureDrinks() {
     damping: 30,
     restDelta: 0.001
   });
+
+  const [isDesktop, setIsDesktop] = useState(true);
+  useEffect(() => {
+    const checkIsDesktop = () => setIsDesktop(window.innerWidth >= 768);
+    checkIsDesktop();
+    window.addEventListener('resize', checkIsDesktop);
+    return () => window.removeEventListener('resize', checkIsDesktop);
+  }, []);
 
   return (
     <section ref={containerRef} className="relative z-50 h-[400vh] bg-[#f1ede9] text-[#1a1a1a]">
@@ -178,8 +186,8 @@ export default function SignatureDrinks() {
             const end = (index + 1) * 0.25;
             const opacity = useTransform(
               smoothProgress,
-              // For the 3rd drink, fade it out early (0.72) so the overlay can seamlessly take over
-              drink.id === "03" 
+              // For the 3rd drink, fade it out early (0.72) on desktop so the overlay can seamlessly take over
+              drink.id === "03" && isDesktop
                 ? [start - 0.1, start + 0.05, 0.72, 0.75] 
                 : [start - 0.1, start + 0.05, end - 0.05, end + 0.1],
               [0, 1, 1, 0]
@@ -235,9 +243,9 @@ export default function SignatureDrinks() {
             );
           })}
         </div>
-        {/* 3D Flying Cup Overlay */}
+        {/* 3D Flying Cup Overlay (Desktop Only) */}
         <motion.div
-          className="absolute inset-0 pointer-events-none z-[100] flex flex-col md:flex-row"
+          className={`absolute inset-0 pointer-events-none z-[100] flex-col md:flex-row ${isDesktop ? 'flex' : 'hidden'}`}
           style={{
             // Fade in the overlay right as the scroll reaches the end of the 3rd slide
             opacity: useTransform(

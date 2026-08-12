@@ -141,16 +141,17 @@ export default function QrSimulator() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 left-6 z-40 hidden sm:flex items-center justify-center gap-2 bg-espresso text-caramel px-5 py-4 rounded-full shadow-2xl border-2 border-caramel hover:bg-caramel hover:text-espresso transition-colors duration-300"
+        className="fixed bottom-24 left-4 md:bottom-6 md:left-6 z-40 flex items-center justify-center gap-2 bg-espresso text-caramel px-4 py-3 md:px-5 md:py-4 rounded-full shadow-2xl border-2 border-caramel hover:bg-caramel hover:text-espresso transition-colors duration-300"
       >
         <Smartphone className="h-5 w-5" />
-        <span className="font-display font-bold">Simulate QR Order</span>
+        <span className="font-display font-bold text-sm md:text-base hidden sm:inline">Simulate QR</span>
+        <span className="font-display font-bold text-sm md:text-base sm:hidden">QR</span>
       </motion.button>
 
       {/* Modal */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="fixed inset-0 z-[250] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
             <motion.div
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}

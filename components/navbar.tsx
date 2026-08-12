@@ -18,7 +18,7 @@ const links = [
 export default function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === '/';
-  
+
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -32,9 +32,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-[200] transition-all duration-500 ${
-        scrolled || !isHome ? 'glass shadow-[0_8px_30px_-12px_rgba(60,30,10,0.25)]' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 inset-x-0 z-[200] transition-all duration-500 ${scrolled || !isHome ? 'glass shadow-[0_8px_30px_-12px_rgba(60,30,10,0.25)]' : 'bg-transparent'
+        }`}
       onMouseLeave={() => setActiveDropdown(null)}
     >
       <nav className="mx-auto max-w-7xl px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
@@ -54,7 +53,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-1 h-full relative">
           {links.map((l) => (
-            <div 
+            <div
               key={l.href}
               className="relative h-full flex items-center"
               onMouseEnter={() => l.hasDropdown && setActiveDropdown(l.label)}
@@ -117,17 +116,17 @@ export default function Navbar() {
                   <h3 className="font-display font-bold text-base text-espresso border-b border-accent/20 pb-2">{category.label}</h3>
                   <div className="flex flex-col gap-2">
                     {category.items.slice(0, 1).map((item, idx) => (
-                      <Link 
-                        key={idx} 
+                      <Link
+                        key={idx}
                         href={`/product/${item.id}`}
                         onClick={() => setActiveDropdown(null)}
                         className="group flex flex-col gap-2 rounded-xl hover:bg-white p-2 -mx-2 transition-colors"
                       >
                         <div className="aspect-[4/3] rounded-lg overflow-hidden relative shadow-sm">
-                          <img 
-                            src={item.image} 
-                            alt={item.name} 
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           />
                           <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                         </div>
@@ -149,9 +148,8 @@ export default function Navbar() {
       </AnimatePresence>
 
       <div
-        className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-500 ${
-          open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`}
+        className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-500 ${open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          }`}
       >
         <div className="glass px-5 pb-5 pt-1 flex flex-col gap-1 border-t border-border/60">
           {links.map((l) => (
@@ -165,11 +163,11 @@ export default function Navbar() {
             </Link>
           ))}
           <a
-            href="tel:+91172517777"
+            href="tel:+918770283188"
             className="flex items-center gap-2 px-3 py-3 rounded-lg text-mocha font-bold hover:bg-primary/10 hover:text-primary transition-colors mt-2 border-t border-border/60"
           >
             <Phone className="h-4 w-4" />
-            0172 517 7777
+            +91 87702 83188
           </a>
         </div>
       </div>
