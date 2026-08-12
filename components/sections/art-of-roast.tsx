@@ -75,7 +75,7 @@ export default function ArtOfRoast() {
             Mastering <br className="hidden sm:block" /> the Roast.
           </h2>
           <p className="mt-6 text-cream/80 text-lg sm:text-xl font-medium max-w-xl mx-auto drop-shadow-lg">
-            Every bean is roasted to perfection in-house, unlocking complex flavors that define the unforgettable Cafe JC experience.
+            Every bean is roasted to perfection in-house, unlocking complex flavors that define the unforgettable Vidhyonix Cafe experience.
           </p>
         </motion.div>
 

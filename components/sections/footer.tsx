@@ -1,10 +1,12 @@
-import { Coffee, Instagram, Facebook, Phone, MapPin, Mail, ArrowUp } from 'lucide-react';
+import { Coffee, Instagram, Facebook, Phone, MapPin, Mail, ArrowUp, Linkedin, Twitter } from 'lucide-react';
 
 const socials = [
+  { icon: Linkedin, label: 'LinkedIn', href: '#' },
+  { icon: Twitter, label: 'Twitter', href: '#' },
   { icon: Instagram, label: 'Instagram', href: '#' },
   { icon: Facebook, label: 'Facebook', href: '#' },
-  { icon: Mail, label: 'Email', href: 'mailto:hello@cafejc.in' },
-  { icon: Phone, label: 'Phone', href: 'tel:+911724630666' },
+  { icon: Mail, label: 'Email', href: 'mailto:vidhyonixitsolutions@gmail.com' },
+  { icon: Phone, label: 'Phone', href: 'tel:+918770283188' },
 ];
 
 export default function Footer() {
@@ -18,22 +20,18 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="grid place-items-center h-10 w-10 rounded-full bg-caramel text-espresso">
-                <Coffee className="h-5 w-5" />
+              <span className="grid place-items-center h-10 w-10 rounded-xl overflow-hidden shadow-md bg-white/5">
+                <img src="/logo.png" alt="Vidhyonix Logo" className="h-full w-full object-contain" />
               </span>
               <span className="leading-tight">
-                <span className="block font-display font-bold text-xl text-cream">Cafe JC</span>
+                <span className="block font-display font-bold text-xl text-cream">Vidhyonix Cafe</span>
                 <span className="block text-[11px] uppercase tracking-[0.22em] text-caramel font-body font-bold">
                   Cafe
                 </span>
               </span>
             </div>
             <p className="mt-4 text-cream/70 text-sm leading-relaxed max-w-xs">
-              A cozy corner in Sector 10D, Chandigarh for handcrafted coffee,
-              wood-fired pizzas &amp; fresh-baked treats. Cozy vibes, honest prices.
-            </p>
-            <p className="mt-4 font-display text-caramel text-lg" lang="pa">
-              ਬੰਬਈ ਚਾਪਸਵਟਕਸ
+              Powered by Vidhyonix IT Solutions. Next-generation web development, AI automation, and intelligent SaaS products.
             </p>
           </div>
 
@@ -65,11 +63,11 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-cream/70">
               <li className="flex gap-2.5">
                 <MapPin className="h-4 w-4 text-caramel shrink-0 mt-0.5" />
-                Shop No. 2 & 3, Azaadi Rte, 10D, Sector 10, Chandigarh, 160011
+                Vidhyonix HQ, Tech Innovation Park
               </li>
               <li className="flex gap-2.5">
                 <Phone className="h-4 w-4 text-caramel shrink-0 mt-0.5" />
-                <a href="tel:+911724630666" className="hover:text-caramel transition-colors">0172 463 0666</a>
+                <a href="tel:+918770283188" className="hover:text-caramel transition-colors">+91 87702 83188</a>
               </li>
             </ul>
 
@@ -89,9 +87,13 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-cream/50 text-center sm:text-left">
-            © {new Date().getFullYear()} Cafe JC · Chandigarh. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 text-xs text-cream/50 text-center sm:text-left">
+            <span>© {new Date().getFullYear()} Vidhyonix IT Solutions. All rights reserved.</span>
+            <span className="hidden sm:inline-block">·</span>
+            <a href="https://vidhyonix.com" target="_blank" rel="noopener noreferrer" className="hover:text-caramel transition-colors underline underline-offset-2">
+              Visit vidhyonix.com
+            </a>
+          </div>
           <a
             href="#top"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-cream/70 hover:text-caramel transition-colors"

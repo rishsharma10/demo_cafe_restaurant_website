@@ -42,7 +42,7 @@ export default function TableBookingBot() {
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       simulateBotResponse(
-        "Hi! I'm the Cafe JC assistant ✨ I can help you reserve a table instantly. Ready to book?",
+        "Hi! I'm the Vidhyonix Cafe assistant ✨ I can help you reserve a table instantly. Ready to book?",
         0
       );
     }
@@ -88,7 +88,7 @@ export default function TableBookingBot() {
         simulateBotResponse(`Almost done. 2 people at ${option.label}. Should I lock this in under your name?`, 4);
         break;
       case 4:
-        simulateBotResponse("You're all set! 🥳 I've locked in your table. See you soon at Cafe JC!", 5);
+        simulateBotResponse("You're all set! 🥳 I've locked in your table. See you soon at Vidhyonix Cafe!", 5);
         break;
       case 99:
         if (option.label === "Actually, let's book") {
@@ -189,7 +189,7 @@ export default function TableBookingBot() {
                   <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-espresso rounded-full"></span>
                 </div>
                 <div>
-                  <h3 className="font-display font-bold leading-none mb-1">Cafe JC Assistant</h3>
+                  <h3 className="font-display font-bold leading-none mb-1">Vidhyonix Cafe Assistant</h3>
                   <p className="text-xs text-cream/70">Always online</p>
                 </div>
               </div>

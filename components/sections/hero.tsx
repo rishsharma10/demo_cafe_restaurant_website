@@ -79,7 +79,7 @@ export default function Hero() {
         </div>
 
         <h1 className="reveal font-display font-black text-5xl sm:text-7xl lg:text-8xl leading-[1.04] text-balance text-shadow-soft">
-          Cafe JC
+          Vidhyonix Cafe
           <span className="block text-caramel mt-1">Cafe</span>
         </h1>
 

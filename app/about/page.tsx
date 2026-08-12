@@ -12,7 +12,7 @@ export default function AboutPage() {
       <div className="pt-24 bg-cream">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 text-center pb-12">
           <h1 className="font-display font-bold text-5xl md:text-6xl text-espresso">About Us</h1>
-          <p className="mt-4 text-mocha/80 max-w-2xl mx-auto">Discover the passion and history behind Cafe JC's culinary excellence.</p>
+          <p className="mt-4 text-mocha/80 max-w-2xl mx-auto">Discover the passion and history behind Vidhyonix Cafe's culinary excellence.</p>
         </div>
       </div>
       <OurStory />

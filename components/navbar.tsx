@@ -35,14 +35,14 @@ export default function Navbar() {
     >
       <nav className="mx-auto max-w-7xl px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5 group">
-          <span className="grid place-items-center h-10 w-10 rounded-full bg-primary text-primary-foreground shadow-md transition-transform duration-500 group-hover:rotate-12">
-            <Coffee className="h-5 w-5" />
+          <span className="grid place-items-center h-10 w-10 rounded-xl overflow-hidden shadow-md transition-transform duration-500 group-hover:scale-110">
+            <img src="/logo.png" alt="Vidhyonix Logo" className="h-full w-full object-contain" />
           </span>
           <span className="leading-tight">
-            <span className="block font-display font-bold text-lg sm:text-xl text-espresso tracking-tight">
-              Cafe JC
+            <span className={`block font-display font-bold text-lg sm:text-xl tracking-tight transition-colors ${scrolled ? 'text-espresso' : 'text-cream drop-shadow-sm'}`}>
+              Vidhyonix Cafe
             </span>
-            <span className="block text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-mocha/80 font-body font-bold">
+            <span className={`block text-[10px] sm:text-[11px] uppercase tracking-[0.22em] font-body font-bold transition-colors ${scrolled ? 'text-mocha/80' : 'text-cream/70 drop-shadow-sm'}`}>
               Cafe
             </span>
           </span>
@@ -57,7 +57,7 @@ export default function Navbar() {
             >
               <Link
                 href={l.href}
-                className="relative px-4 py-2 text-sm font-bold text-mocha hover:text-primary transition-colors group flex items-center gap-1"
+                className={`relative px-4 py-2 text-sm font-bold hover:text-primary transition-colors group flex items-center gap-1 ${scrolled ? 'text-mocha' : 'text-cream drop-shadow-sm'}`}
                 onClick={() => setActiveDropdown(null)}
               >
                 {l.label}
@@ -72,11 +72,11 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="tel:+91172517777"
-            className="flex items-center gap-2 text-sm font-bold text-mocha hover:text-primary transition-colors"
+            href="tel:+918770283188"
+            className={`flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors ${scrolled ? 'text-mocha' : 'text-cream drop-shadow-sm'}`}
           >
             <Phone className="h-4 w-4" />
-            0172 517 7777
+            +91 87702 83188
           </a>
           <Link
             href="/visit"

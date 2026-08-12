@@ -14,7 +14,7 @@ export default function OurStory() {
             </h2>
             <div className="reveal space-y-6 text-mocha/90 text-lg leading-relaxed">
               <p>
-                At Cafe JC, we believe that a great cup of coffee starts long before it reaches your mug. It begins with the soil, the farmers, and the roasting process. That's why we partner exclusively with ethical estates that prioritize sustainable farming.
+                At Vidhyonix Cafe, we believe that a great cup of coffee starts long before it reaches your mug. It begins with the soil, the farmers, and the roasting process. That's why we partner exclusively with ethical estates that prioritize sustainable farming.
               </p>
               <p>
                 Every bean we pull for your espresso is freshly roasted in small batches to preserve its natural oils and complex flavor profile. When you sip our coffee, you're tasting the dedication of dozens of passionate people.

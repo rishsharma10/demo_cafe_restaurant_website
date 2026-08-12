@@ -116,7 +116,7 @@ export default function Visit() {
           {/* Map */}
           <div className="reveal rounded-3xl overflow-hidden shadow-lg border border-primary/10 min-h-[360px] bg-latte">
             <iframe
-              title="Cafe JC location map"
+              title="Vidhyonix Cafe location map"
               src="https://www.google.com/maps?q=Cafe+JC,+Sector+10,+Chandigarh&output=embed"
               className="w-full h-full min-h-[360px]"
               style={{ border: 0 }}

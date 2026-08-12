@@ -32,7 +32,7 @@ export default function PrivateEvents() {
               Make Your Moments Memorable
             </h2>
             <p className="reveal text-lg text-cream/80 leading-relaxed mb-8">
-              Whether it's a corporate luncheon, an intimate birthday celebration, or a creative workshop, Cafe JC provides the perfect backdrop. Enjoy custom menus, our signature coffees, and a dedicated team to make your event flawless.
+              Whether it's a corporate luncheon, an intimate birthday celebration, or a creative workshop, Vidhyonix Cafe provides the perfect backdrop. Enjoy custom menus, our signature coffees, and a dedicated team to make your event flawless.
             </p>
 
             <ul className="reveal space-y-4 mb-10">

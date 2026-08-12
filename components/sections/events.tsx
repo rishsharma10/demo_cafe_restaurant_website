@@ -26,7 +26,7 @@ export default function Events() {
             Community
           </p>
           <h2 className="reveal font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-espresso leading-tight text-balance">
-            Upcoming Events at Cafe JC
+            Upcoming Events at Vidhyonix Cafe
           </h2>
           <p className="reveal mt-4 text-mocha/80 text-lg">
             Join us for live music, coffee workshops, and local gatherings.

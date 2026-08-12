@@ -100,7 +100,7 @@ export const reviews = [
     initial: 'S',
     rating: 5,
     time: '4 months ago',
-    text: 'Visited JC Cafe yesterday with my daughter, and it was such a lovely experience from start to finish. Prices were reasonable as per tast and dish..pasta and pizza 🍕 was yummy 😋.',
+    text: 'Visited Vidhyonix Cafe yesterday with my daughter, and it was such a lovely experience from start to finish. Prices were reasonable as per tast and dish..pasta and pizza 🍕 was yummy 😋.',
   },
   {
     name: 'Ethan Walker',
@@ -108,7 +108,7 @@ export const reviews = [
     initial: 'E',
     rating: 4,
     time: '3 months ago',
-    text: 'Cafe JC offers a relaxed and welcoming spot for casual dining in the city. The ambiance is clean and modern, making it a comfortable place to hang out with friends or enjoy a quiet break. Their menu covers a good range of café favorites.',
+    text: 'Vidhyonix Cafe offers a relaxed and welcoming spot for casual dining in the city. The ambiance is clean and modern, making it a comfortable place to hang out with friends or enjoy a quiet break. Their menu covers a good range of café favorites.',
   },
   {
     name: 'Tushaar Goel',
@@ -116,7 +116,7 @@ export const reviews = [
     initial: 'T',
     rating: 5,
     time: '6 months ago',
-    text: 'Amazing food and excellent service! Everything we ordered was fresh, flavorful, and delicious. The staff was friendly, attentive, and made us feel very welcome. JC Cafe is a great spot and definitely worth a visit. Highly recommend!',
+    text: 'Amazing food and excellent service! Everything we ordered was fresh, flavorful, and delicious. The staff was friendly, attentive, and made us feel very welcome. Vidhyonix Cafe is a great spot and definitely worth a visit. Highly recommend!',
   },
 ];
 

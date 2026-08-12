@@ -18,18 +18,18 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: 'Cafe JC | Chandigarh',
+  title: 'Vidhyonix Cafe | Chandigarh',
   description:
-    'Cafe JC in Sector 10D, Chandigarh — cozy vibes, handcrafted coffee, wood-fired pizzas, fresh bakes & more. Dine-in, takeaway & no-contact delivery.',
+    'Vidhyonix Cafe in Sector 10D, Chandigarh — cozy vibes, handcrafted coffee, wood-fired pizzas, fresh bakes & more. Dine-in, takeaway & no-contact delivery.',
   keywords: [
-    'Cafe JC',
+    'Vidhyonix Cafe',
     'cafe in Chandigarh',
     'bakery Chandigarh',
     'coffee shop Sector 10',
     'pizza pasta Chandigarh',
   ],
   openGraph: {
-    title: 'Cafe JC | Chandigarh',
+    title: 'Vidhyonix Cafe | Chandigarh',
     description:
       'Cozy vibes, handcrafted coffee, wood-fired pizzas & fresh bakes in Sector 10D, Chandigarh.',
     type: 'website',
@@ -53,7 +53,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "CafeOrCoffeeShop",
-              "name": "Cafe JC",
+              "name": "Vidhyonix Cafe",
               "image": "https://images.pexels.com/photos/11696469/pexels-photo-11696469.jpeg",
               "url": "https://cafejc.in",
               "telephone": "01724630666",

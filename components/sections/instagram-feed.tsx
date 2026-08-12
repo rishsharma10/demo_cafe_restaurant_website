@@ -68,7 +68,7 @@ export default function InstagramFeed() {
             >
               <img
                 src={post.src}
-                alt="Instagram post from Cafe JC"
+                alt="Instagram post from Vidhyonix Cafe"
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
