@@ -1,6 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Playfair_Display, Lato, Caveat } from 'next/font/google';
+import { Playfair_Display, Lato, Caveat, Outfit } from 'next/font/google';
 import TableBookingBot from '@/components/table-booking-bot';
 import QrSimulator from '@/components/qr-simulator';
 
@@ -21,6 +21,12 @@ const lato = Lato({
 const caveat = Caveat({
   subsets: ['latin'],
   variable: '--font-cursive',
+  display: 'swap',
+});
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-brand',
   display: 'swap',
 });
 
@@ -57,7 +63,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${playfair.variable} ${lato.variable} ${caveat.variable} font-body antialiased bg-cream text-espresso selection:bg-caramel selection:text-espresso`}>
+      <body className={`${playfair.variable} ${lato.variable} ${caveat.variable} ${outfit.variable} font-body antialiased bg-cream text-espresso overflow-x-hidden selection:bg-caramel selection:text-espresso`}>
+        {/* We use a custom cursor everywhere on desktop */}
         {children}
         <TableBookingBot />
         <QrSimulator />

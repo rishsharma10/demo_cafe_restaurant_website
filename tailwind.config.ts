@@ -18,6 +18,7 @@ const config: Config = {
         display: ['var(--font-display)'],
         body: ['var(--font-body)'],
         cursive: ['var(--font-cursive)'],
+        brand: ['var(--font-brand)'],
       },
       borderRadius: {
         lg: 'var(--radius)',

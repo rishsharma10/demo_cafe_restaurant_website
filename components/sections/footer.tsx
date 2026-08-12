@@ -19,16 +19,12 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="grid place-items-center h-10 w-10 rounded-xl overflow-hidden shadow-md bg-white/5">
-                <img src="/logo.png" alt="Vidhyonix Logo" className="h-full w-full object-contain" />
-              </span>
-              <span className="leading-tight">
-                <span className="block font-display font-bold text-xl text-cream">Vidhyonix Cafe</span>
-                <span className="block text-[11px] uppercase tracking-[0.22em] text-caramel font-body font-bold">
-                  Cafe
-                </span>
-              </span>
+            <div className="flex items-center">
+              <img 
+                src="/vlogobgrm.png" 
+                alt="Vidhyonix Cafe" 
+                className="h-10 sm:h-12 w-auto object-contain" 
+              />
             </div>
             <p className="mt-4 text-cream/70 text-sm leading-relaxed max-w-xs">
               Powered by Vidhyonix IT Solutions. Next-generation web development, AI automation, and intelligent SaaS products.
