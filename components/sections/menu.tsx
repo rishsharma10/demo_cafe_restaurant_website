@@ -110,8 +110,11 @@ export default function Menu() {
               <Link
                 href={`/product/${item.id}`}
                 key={item.id || item.name}
-                className="group relative flex flex-col overflow-hidden rounded-3xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/10 hover:border-caramel/50 hover:from-white/[0.15] hover:to-white/[0.08] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)]"
+                className="group relative flex flex-col overflow-hidden rounded-3xl bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/10 transition-all duration-500 hover:-translate-y-2"
               >
+              {/* Neon Glow Border */}
+              <div className="absolute inset-0 z-50 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl border-2 border-caramel shadow-[inset_0_0_20px_rgba(202,156,104,0.6),0_0_20px_rgba(202,156,104,0.6)]" />
+
               {/* Image */}
               <div 
                 id={item.id === 'hazelnut-frappe' ? 'hazelnut-target' : undefined}

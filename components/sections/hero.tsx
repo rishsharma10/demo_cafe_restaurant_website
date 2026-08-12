@@ -94,6 +94,23 @@ export default function Hero() {
         ))}
       </div>
 
+      {/* Rotating Sticker Badge (Gen Z style) */}
+      <div className="absolute bottom-12 right-12 z-50 md:bottom-24 md:right-24 drop-shadow-2xl hidden md:block opacity-90">
+        <div className="relative w-32 h-32 flex items-center justify-center animate-[spin_12s_linear_infinite]">
+          <svg viewBox="0 0 100 100" className="w-full h-full text-cream fill-cream">
+            <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
+            <text className="font-display text-[12.5px] font-bold tracking-[0.2em] uppercase">
+              <textPath href="#circlePath" startOffset="0%">
+                100% ORGANIC CAFE • LOCALLY ROASTED • 
+              </textPath>
+            </text>
+          </svg>
+          <div className="absolute inset-0 flex items-center justify-center text-cream pb-1 pr-1">
+            <Star size={24} className="fill-cream/20" />
+          </div>
+        </div>
+      </div>
+
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-8 text-center text-cream">
         <div
@@ -124,12 +141,12 @@ export default function Hero() {
             <Coffee className="h-4 w-4" />
             Explore the Menu
           </a>
-          <a
-            href="#visit"
+          <button
+            onClick={() => window.dispatchEvent(new Event('openBookingBot'))}
             className="inline-flex items-center gap-2 rounded-full border border-cream/40 text-cream px-7 py-3.5 text-sm font-bold hover:bg-cream/10 transition-all duration-300"
           >
             Reserve a Table
-          </a>
+          </button>
         </div>
 
         <div className="reveal mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:text-sm text-cream/80 font-body">

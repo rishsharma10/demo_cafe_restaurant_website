@@ -34,15 +34,32 @@ export default function CozyCorners() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8 relative z-20 flex flex-col md:flex-row-reverse items-center gap-12 md:gap-24">
         <motion.div
           style={{ opacity, y: y2 }}
-          className="flex-1 space-y-6 md:pl-10"
+          className="flex-1 space-y-6 md:pl-10 relative"
         >
+          {/* Floating Emoji 1 */}
+          <motion.div 
+            animate={{ y: [0, -15, 0], rotate: [0, -10, 0] }} 
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-12 -left-8 text-4xl opacity-80"
+          >
+            ☕️
+          </motion.div>
+          {/* Floating Emoji 2 */}
+          <motion.div 
+            animate={{ y: [0, 20, 0], scale: [1, 1.2, 1] }} 
+            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute top-20 -right-4 text-3xl opacity-60"
+          >
+            ✨
+          </motion.div>
+
           <span className="font-cursive text-caramel text-3xl md:text-5xl -rotate-2 inline-block">
             Find your favorite spot...
           </span>
           <h2 className="font-display text-4xl sm:text-6xl md:text-7xl font-bold leading-[1.1] tracking-tight">
             The Reading Nook
           </h2>
-          <p className="text-cream/70 text-lg md:text-xl font-body max-w-md leading-relaxed">
+          <p className="text-cream/70 text-lg md:text-xl font-body max-w-md leading-relaxed relative">
             Curl up with a good book, the smell of freshly roasted beans, and our warm, ambient lighting. Time slows down in our cozy corners.
           </p>
         </motion.div>

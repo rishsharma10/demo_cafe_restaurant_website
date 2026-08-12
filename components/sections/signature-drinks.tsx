@@ -3,6 +3,16 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
+const beansData = Array.from({ length: 12 }).map((_, i) => ({
+  id: i,
+  left: `${Math.random() * 100}%`,
+  top: `${Math.random() * 100}%`,
+  size: Math.random() * 15 + 15, // 15px to 30px
+  rot: Math.random() * 360,
+  shakeOffset: Math.random() * 15 + 10,
+  shakeDur: Math.random() * 3 + 3,
+}));
+
 const signatureDrinks = [
   {
     id: "01",
@@ -80,6 +90,43 @@ export default function SignatureDrinks() {
     <section ref={containerRef} className="relative z-50 h-[400vh] bg-[#f1ede9] text-[#1a1a1a]">
       <div className="sticky top-0 h-screen w-full flex flex-col md:flex-row max-w-[1600px] mx-auto">
         
+        {/* Scattered Background Coffee Beans */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          {beansData.map((bean) => (
+            <motion.div
+              key={bean.id}
+              style={{
+                position: 'absolute',
+                left: bean.left,
+                top: bean.top,
+                width: bean.size,
+                height: bean.size,
+                rotate: bean.rot,
+              }}
+              className="opacity-40"
+            >
+              <motion.div
+                animate={{
+                  y: [0, -bean.shakeOffset, 0],
+                  rotate: [0, 8, -8, 0],
+                }}
+                transition={{
+                  duration: bean.shakeDur,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="w-full h-full"
+              >
+                <img 
+                  src="/images/coffee_bean.png" 
+                  alt="Coffee Bean" 
+                  className="w-full h-full object-contain mix-blend-multiply" 
+                />
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+
         {/* Global Header */}
         <div className="absolute top-8 left-8 sm:top-12 sm:left-12 z-20 pointer-events-none">
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight">
@@ -209,7 +256,7 @@ export default function SignatureDrinks() {
               <motion.div
                 key={`img-${drink.name}`}
                 style={{ opacity, y }}
-                className="absolute inset-0 flex items-center justify-center pointer-events-none"
+                className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none"
               >
                 <motion.div style={{ rotate }} className="relative w-64 sm:w-80 md:w-96 aspect-square sm:aspect-[3/4] md:aspect-[3/4] flex items-center justify-center">
                   <img 

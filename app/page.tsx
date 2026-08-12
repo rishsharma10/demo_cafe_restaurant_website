@@ -5,6 +5,7 @@ import SlowDown from '@/components/sections/slow-down';
 import Footer from '@/components/sections/footer';
 import Gallery from '@/components/sections/gallery';
 import Hero from '@/components/sections/hero';
+import Marquee from '@/components/marquee';
 import Menu from '@/components/sections/menu';
 import Reviews from '@/components/sections/reviews';
 import Visit from '@/components/sections/visit';
@@ -25,6 +26,7 @@ export default function Home() {
       <ScrollReveal />
       <Navbar />
       <Hero />
+      <Marquee />
       <ArtOfRoast />
       <About />
       <SignatureDrinks />
