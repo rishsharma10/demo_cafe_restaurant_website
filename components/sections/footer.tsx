@@ -63,7 +63,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-cream/70">
               <li className="flex gap-2.5">
                 <MapPin className="h-4 w-4 text-caramel shrink-0 mt-0.5" />
-                Vidhyonix HQ, Tech Innovation Park
+                F-452, Phase 8b, Mohali 160055
               </li>
               <li className="flex gap-2.5">
                 <Phone className="h-4 w-4 text-caramel shrink-0 mt-0.5" />

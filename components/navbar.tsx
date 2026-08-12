@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Coffee, Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { menuCategories } from '@/lib/data';
@@ -15,6 +16,9 @@ const links = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+  
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -29,7 +33,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? 'glass shadow-[0_8px_30px_-12px_rgba(60,30,10,0.25)]' : 'bg-transparent'
+        scrolled || !isHome ? 'glass shadow-[0_8px_30px_-12px_rgba(60,30,10,0.25)]' : 'bg-transparent'
       }`}
       onMouseLeave={() => setActiveDropdown(null)}
     >
@@ -39,10 +43,10 @@ export default function Navbar() {
             <img src="/logo.png" alt="Vidhyonix Logo" className="h-full w-full object-contain" />
           </span>
           <span className="leading-tight">
-            <span className={`block font-display font-bold text-lg sm:text-xl tracking-tight transition-colors ${scrolled ? 'text-espresso' : 'text-cream drop-shadow-sm'}`}>
+            <span className={`block font-display font-bold text-lg sm:text-xl tracking-tight transition-colors ${scrolled || !isHome ? 'text-espresso' : 'text-cream drop-shadow-sm'}`}>
               Vidhyonix Cafe
             </span>
-            <span className={`block text-[10px] sm:text-[11px] uppercase tracking-[0.22em] font-body font-bold transition-colors ${scrolled ? 'text-mocha/80' : 'text-cream/70 drop-shadow-sm'}`}>
+            <span className={`block text-[10px] sm:text-[11px] uppercase tracking-[0.22em] font-body font-bold transition-colors ${scrolled || !isHome ? 'text-mocha/80' : 'text-cream/70 drop-shadow-sm'}`}>
               Cafe
             </span>
           </span>
@@ -57,7 +61,7 @@ export default function Navbar() {
             >
               <Link
                 href={l.href}
-                className={`relative px-4 py-2 text-sm font-bold hover:text-primary transition-colors group flex items-center gap-1 ${scrolled ? 'text-mocha' : 'text-cream drop-shadow-sm'}`}
+                className={`relative px-4 py-2 text-sm font-bold hover:text-primary transition-colors group flex items-center gap-1 ${scrolled || !isHome ? 'text-mocha' : 'text-cream drop-shadow-sm'}`}
                 onClick={() => setActiveDropdown(null)}
               >
                 {l.label}
@@ -73,7 +77,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <a
             href="tel:+918770283188"
-            className={`flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors ${scrolled ? 'text-mocha' : 'text-cream drop-shadow-sm'}`}
+            className={`flex items-center gap-2 text-sm font-bold hover:text-primary transition-colors ${scrolled || !isHome ? 'text-mocha' : 'text-cream drop-shadow-sm'}`}
           >
             <Phone className="h-4 w-4" />
             +91 87702 83188

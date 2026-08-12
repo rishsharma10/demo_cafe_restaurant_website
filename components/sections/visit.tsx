@@ -25,7 +25,7 @@ export default function Visit() {
             Visit Us
           </p>
           <h2 className="reveal font-display font-bold text-4xl sm:text-5xl text-espresso leading-tight text-balance">
-            Find your table in the heart of Chandigarh
+            Find your table in the heart of Mohali
           </h2>
         </div>
 
@@ -40,9 +40,8 @@ export default function Visit() {
                 <div>
                   <p className="font-display font-bold text-espresso">Address</p>
                   <p className="text-mocha/85 leading-snug">
-                    Shop No. 2 & 3, Azaadi Rte, 10D, Sector 10, Chandigarh, 160011
+                    F-452, Phase 8b, Mohali 160055
                   </p>
-                  <p className="text-xs text-mocha/60 mt-1">Plus Code: PQGG+GM Chandigarh</p>
                 </div>
               </div>
 
@@ -52,8 +51,8 @@ export default function Visit() {
                 </span>
                 <div>
                   <p className="font-display font-bold text-espresso">Reservations</p>
-                  <a href="tel:+911724630666" className="text-mocha/85 hover:text-primary transition-colors">
-                    0172 463 0666
+                  <a href="tel:+918770283188" className="text-mocha/85 hover:text-primary transition-colors">
+                    +91 87702 83188
                   </a>
                 </div>
               </div>
@@ -95,7 +94,7 @@ export default function Visit() {
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Down+Town+Cafe+%26+Bakery+Sector+21+Chandigarh"
+                href="https://www.google.com/maps/search/?api=1&query=Vidhyonix+Phase+8b+Mohali"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-3 text-sm font-bold shadow-md hover:bg-espresso hover:-translate-y-0.5 transition-all"
@@ -104,7 +103,7 @@ export default function Visit() {
                 Get Directions
               </a>
               <a
-                href="tel:+911724630666"
+                href="tel:+918770283188"
                 className="flex-1 inline-flex items-center justify-center gap-2 rounded-full border border-primary/30 text-primary px-5 py-3 text-sm font-bold hover:bg-primary/5 transition-colors"
               >
                 <Phone className="h-4 w-4" />
@@ -117,7 +116,7 @@ export default function Visit() {
           <div className="reveal rounded-3xl overflow-hidden shadow-lg border border-primary/10 min-h-[360px] bg-latte">
             <iframe
               title="Vidhyonix Cafe location map"
-              src="https://www.google.com/maps?q=Cafe+JC,+Sector+10,+Chandigarh&output=embed"
+              src="https://www.google.com/maps?q=Vidhyonix,+Phase+8b,+Mohali&output=embed"
               className="w-full h-full min-h-[360px]"
               style={{ border: 0 }}
               loading="lazy"

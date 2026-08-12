@@ -38,11 +38,10 @@ export default function TableBookingBot() {
     scrollToBottom();
   }, [messages, isTyping, isOpen]);
 
-  // Initial Greeting when opened for the first time
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       simulateBotResponse(
-        "Hi! I'm the Vidhyonix Cafe assistant ✨ I can help you reserve a table instantly. Ready to book?",
+        "Hi! I'm the Vidhyonix Cafe AI Concierge ✨ I can help you reserve a table, recommend dishes, or answer any questions about our menu.",
         0
       );
     }
@@ -72,10 +71,14 @@ export default function TableBookingBot() {
     // Determine bot's next response based on the step we just completed
     switch (step) {
       case 0:
-        if (option.label === "Just browsing") {
-          simulateBotResponse("No problem! Let me know if you change your mind. Enjoy our site!", 99);
-        } else {
+        if (option.label === "Reserve a Table") {
           simulateBotResponse("Awesome. How many people are joining?", 1);
+        } else if (option.label === "Do you have vegan options?") {
+          simulateBotResponse("Yes! We have a delicious Vegan Margherita Pizza and several plant-based milks for our coffees. Would you like to book a table to try them?", 102);
+        } else if (option.label === "What's the best drink here?") {
+          simulateBotResponse("Our absolute best-seller is the Cold Coffee—it's legendary here! The Hazelnut Frappe is a close second. Ready to come in and try one?", 102);
+        } else {
+          simulateBotResponse("No problem! Let me know if you change your mind.", 99);
         }
         break;
       case 1:
@@ -95,6 +98,13 @@ export default function TableBookingBot() {
           simulateBotResponse("Awesome. How many people are joining?", 1);
         }
         break;
+      case 102:
+        if (option.label === "Yes, let's book a table") {
+          simulateBotResponse("Awesome. How many people are joining?", 1);
+        } else {
+          simulateBotResponse("No problem! I'll be here if you change your mind.", 99);
+        }
+        break;
       default:
         break;
     }
@@ -105,8 +115,9 @@ export default function TableBookingBot() {
     switch (step) {
       case 0:
         return [
-          { label: "Yes, let's book!", nextStep: 1 },
-          { label: "Just browsing", nextStep: 99 },
+          { label: "Reserve a Table", nextStep: 1 },
+          { label: "Do you have vegan options?", nextStep: 100 },
+          { label: "What's the best drink here?", nextStep: 101 },
         ];
       case 1:
         return [
@@ -138,6 +149,11 @@ export default function TableBookingBot() {
       case 99:
         return [
           { label: "Actually, let's book", nextStep: 1 }
+        ];
+      case 102:
+        return [
+          { label: "Yes, let's book a table", nextStep: 1 },
+          { label: "Just browsing for now", nextStep: 99 },
         ];
       default:
         return [];
@@ -189,7 +205,7 @@ export default function TableBookingBot() {
                   <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-espresso rounded-full"></span>
                 </div>
                 <div>
-                  <h3 className="font-display font-bold leading-none mb-1">Vidhyonix Cafe Assistant</h3>
+                  <h3 className="font-display font-bold leading-none mb-1">Vidhyonix AI Concierge</h3>
                   <p className="text-xs text-cream/70">Always online</p>
                 </div>
               </div>

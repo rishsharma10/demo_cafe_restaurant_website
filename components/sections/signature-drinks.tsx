@@ -84,18 +84,15 @@ export default function SignatureDrinks() {
           {signatureDrinks.map((drink, index) => {
             const start = index * (1 / signatureDrinks.length);
             const end = (index + 1) * (1 / signatureDrinks.length);
-            const isFirst = index === 0;
-            const isLast = index === signatureDrinks.length - 1;
-
             const opacity = useTransform(
               smoothProgress,
-              [isFirst ? 0 : start - 0.05, start, end - 0.05, isLast ? 1 : end],
+              [start - 0.15, start + 0.1, end - 0.1, end + 0.15],
               [0, 1, 1, 0]
             );
 
             const y = useTransform(
               smoothProgress,
-              [isFirst ? 0 : start - 0.05, start, end - 0.05, isLast ? 1 : end],
+              [start - 0.15, start + 0.1, end - 0.1, end + 0.15],
               [100, 0, 0, -100]
             );
 
@@ -149,13 +146,13 @@ export default function SignatureDrinks() {
             
             const opacity = useTransform(
               smoothProgress,
-              [start - 0.1, start, end - 0.1, end],
+              [start - 0.15, start + 0.1, end - 0.1, end + 0.15],
               [0, 1, 1, 0]
             );
 
             const scale = useTransform(
               smoothProgress,
-              [start, end],
+              [start - 0.15, end + 0.15],
               [0.8, 1.2]
             );
 
@@ -179,24 +176,21 @@ export default function SignatureDrinks() {
           {signatureDrinks.map((drink, index) => {
             const start = index * (1 / signatureDrinks.length);
             const end = (index + 1) * (1 / signatureDrinks.length);
-            const isFirst = index === 0;
-            const isLast = index === signatureDrinks.length - 1;
-            
             const opacity = useTransform(
               smoothProgress,
-              [isFirst ? 0 : start - 0.05, start, end - 0.05, isLast ? 1 : end],
+              [start - 0.15, start + 0.1, end - 0.1, end + 0.15],
               [0, 1, 1, 0]
             );
 
             const y = useTransform(
               smoothProgress,
-              [isFirst ? 0 : start - 0.05, start, end - 0.05, isLast ? 1 : end],
+              [start - 0.15, start + 0.1, end - 0.1, end + 0.15],
               [100, 0, 0, -100]
             );
 
             const rotate = useTransform(
               smoothProgress,
-              [isFirst ? 0 : start - 0.05, start, end - 0.05, isLast ? 1 : end],
+              [start - 0.15, start + 0.1, end - 0.1, end + 0.15],
               [-20, 0, 5, 25]
             );
 

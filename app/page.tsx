@@ -1,5 +1,7 @@
 import About from '@/components/sections/about';
 import ArtOfRoast from '@/components/sections/art-of-roast';
+import CozyCorners from '@/components/sections/cozy-corners';
+import SlowDown from '@/components/sections/slow-down';
 import Footer from '@/components/sections/footer';
 import Gallery from '@/components/sections/gallery';
 import Hero from '@/components/sections/hero';
@@ -27,9 +29,11 @@ export default function Home() {
       <About />
       <SignatureDrinks />
       <Menu />
+      <CozyCorners />
       <Gallery />
       <Reviews />
       <InstagramFeed />
+      <SlowDown />
       <OurStory />
       <Events />
       <PrivateEvents />

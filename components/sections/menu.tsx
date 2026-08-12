@@ -9,7 +9,21 @@ import Link from 'next/link';
 export default function Menu() {
   const [active, setActive] = useState(menuCategories[0].id);
   const [addedItem, setAddedItem] = useState<string | null>(null);
+  const [activeMood, setActiveMood] = useState<string | null>(null);
+  
   const current = menuCategories.find((c) => c.id === active) ?? menuCategories[0];
+  const allItems = menuCategories.flatMap(c => c.items);
+  
+  const aiMoods = [
+    { id: 'energy', label: '⚡ Need Energy', desc: 'AI Suggestion: High caffeine and a quick sugar rush to keep you moving.', items: ['cold-coffee', 'kitkat-crunch-shake', 'peri-peri-pizza'] },
+    { id: 'cozy', label: '🔥 Cozy Date', desc: 'AI Suggestion: Perfect for sharing and warming up on a chilly evening.', items: ['cappuccino', 'cheese-burst-pizza', 'chocolate-oreo-shake'] },
+    { id: 'light', label: '🥗 Healthy & Light', desc: 'AI Suggestion: Fresh, crisp, and refreshing choices without the heavy calories.', items: ['iced-americano', 'watermelon-mint-cooler', 'arrabbiata-pasta'] }
+  ];
+
+  const currentMoodObj = aiMoods.find(m => m.id === activeMood);
+  const displayedItems = activeMood && currentMoodObj
+    ? currentMoodObj.items.map(id => allItems.find(i => i.id === id)!).filter(Boolean)
+    : current.items;
 
   return (
     <section id="menu" className="relative py-24 sm:py-32 bg-espresso overflow-hidden">
@@ -32,38 +46,67 @@ export default function Menu() {
           </p>
         </div>
 
-        {/* Tabs */}
-        <div className="reveal mt-10 flex flex-wrap justify-center gap-2 sm:gap-3">
-          {menuCategories.map((c) => (
-            <button
-              key={c.id}
-              onClick={() => setActive(c.id)}
-              className={`rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300 border ${
-                active === c.id
-                  ? 'bg-caramel text-espresso border-caramel shadow-lg scale-105'
-                  : 'bg-white/5 text-cream/80 border-cream/15 hover:bg-white/10 hover:text-cream'
-              }`}
-            >
-              {c.label}
-            </button>
-          ))}
+        {/* AI Mood Bar */}
+        <div className="mt-8 max-w-3xl mx-auto bg-gradient-to-r from-espresso via-espresso/90 to-espresso border border-caramel/30 rounded-2xl p-4 shadow-xl">
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <div className="flex items-center gap-2 text-caramel">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+              <span className="font-bold text-sm uppercase tracking-widest">What are you craving?</span>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {aiMoods.map((mood) => (
+                <button
+                  key={mood.id}
+                  onClick={() => {
+                    setActiveMood(activeMood === mood.id ? null : mood.id);
+                  }}
+                  className={`rounded-full px-4 py-1.5 text-xs font-bold transition-all border ${
+                    activeMood === mood.id
+                      ? 'bg-caramel text-espresso border-caramel scale-105'
+                      : 'bg-white/5 text-cream border-cream/20 hover:bg-white/10'
+                  }`}
+                >
+                  {mood.label}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <p className="mt-5 text-center text-cream/60 text-sm italic font-display">
-          {current.blurb}
+        {/* Tabs */}
+        {!activeMood && (
+          <div className="reveal mt-8 flex flex-wrap justify-center gap-2 sm:gap-3">
+            {menuCategories.map((c) => (
+              <button
+                key={c.id}
+                onClick={() => setActive(c.id)}
+                className={`rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300 border ${
+                  active === c.id
+                    ? 'bg-caramel text-espresso border-caramel shadow-lg scale-105'
+                    : 'bg-white/5 text-cream/80 border-cream/15 hover:bg-white/10 hover:text-cream'
+                }`}
+              >
+                {c.label}
+              </button>
+            ))}
+          </div>
+        )}
+
+        <p className="mt-5 text-center text-cream/60 text-sm italic font-display min-h-[1.5rem]">
+          {activeMood && currentMoodObj ? currentMoodObj.desc : current.blurb}
         </p>
 
         {/* Product cards */}
         <AnimatePresence mode="wait">
           <motion.div 
-            key={active}
+            key={activeMood || active}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
             className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
           >
-            {current.items.map((item, i) => (
+            {displayedItems.map((item, i) => (
               <Link
                 href={`/product/${item.id}`}
                 key={item.id || item.name}
@@ -107,6 +150,13 @@ export default function Menu() {
                     <Plus className="h-5 w-5" />
                   </button>
                 </div>
+                {item.popularity && (
+                  <div className="mt-2 inline-block">
+                    <span className="text-xs font-bold text-[#ff6b6b] bg-[#ff6b6b]/10 px-2 py-0.5 rounded border border-[#ff6b6b]/20">
+                      {item.popularity}
+                    </span>
+                  </div>
+                )}
                 <p className="mt-2 text-sm text-cream/70 leading-relaxed min-h-[3rem]">
                   {item.desc}
                 </p>

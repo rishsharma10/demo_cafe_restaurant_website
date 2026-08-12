@@ -1,7 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Playfair_Display, Lato } from 'next/font/google';
+import { Playfair_Display, Lato, Caveat } from 'next/font/google';
 import TableBookingBot from '@/components/table-booking-bot';
+import QrSimulator from '@/components/qr-simulator';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -17,22 +18,29 @@ const lato = Lato({
   weight: ['300', '400', '700', '900'],
 });
 
+const caveat = Caveat({
+  subsets: ['latin'],
+  variable: '--font-cursive',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
-  title: 'Vidhyonix Cafe | Chandigarh',
+  title: 'Vidhyonix Cafe | Mohali',
   description:
-    'Vidhyonix Cafe in Sector 10D, Chandigarh — cozy vibes, handcrafted coffee, wood-fired pizzas, fresh bakes & more. Dine-in, takeaway & no-contact delivery.',
+    'Vidhyonix Cafe in Phase 8b, Mohali — cozy vibes, handcrafted coffee, wood-fired pizzas, fresh bakes & more. Dine-in, takeaway & no-contact delivery.',
   keywords: [
     'Vidhyonix Cafe',
-    'cafe in Chandigarh',
-    'bakery Chandigarh',
-    'coffee shop Sector 10',
-    'pizza pasta Chandigarh',
+    'cafe in Mohali',
+    'bakery Mohali',
+    'coffee shop Phase 8b',
+    'pizza pasta Mohali',
   ],
   openGraph: {
-    title: 'Vidhyonix Cafe | Chandigarh',
+    title: 'Vidhyonix Cafe | Mohali',
     description:
-      'Cozy vibes, handcrafted coffee, wood-fired pizzas & fresh bakes in Sector 10D, Chandigarh.',
+      'Cozy vibes, handcrafted coffee, wood-fired pizzas & fresh bakes in Phase 8b, Mohali.',
     type: 'website',
+    url: 'https://vidhyonix.com'
   },
   twitter: { card: 'summary_large_image' },
 };
@@ -43,10 +51,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${playfair.variable} ${lato.variable} font-body antialiased`}>
+    <html lang="en" className="scroll-smooth">
+      <body className={`${playfair.variable} ${lato.variable} ${caveat.variable} font-body antialiased bg-cream text-espresso selection:bg-caramel selection:text-espresso`}>
         {children}
         <TableBookingBot />
+        <QrSimulator />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -55,19 +64,19 @@ export default function RootLayout({
               "@type": "CafeOrCoffeeShop",
               "name": "Vidhyonix Cafe",
               "image": "https://images.pexels.com/photos/11696469/pexels-photo-11696469.jpeg",
-              "url": "https://cafejc.in",
+              "url": "https://vidhyonix.com",
               "telephone": "01724630666",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Shop No. 2 & 3, Azaadi Rte, 10D",
-                "addressLocality": "Sector 10, Chandigarh",
-                "postalCode": "160011",
+                "streetAddress": "F-452, Phase 8b",
+                "addressLocality": "Mohali",
+                "postalCode": "160055",
                 "addressCountry": "IN"
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 30.7495,
-                "longitude": 76.7901
+                "latitude": 30.7046,
+                "longitude": 76.7179
               },
               "openingHoursSpecification": [
                 {
@@ -79,13 +88,13 @@ export default function RootLayout({
                   "closes": "23:30"
                 }
               ],
-              "menu": "https://cafejc.in/#menu",
+              "menu": "https://vidhyonix.com/#menu",
               "acceptsReservations": "True",
               "priceRange": "₹400–1,600",
               "aggregateRating": {
                 "@type": "AggregateRating",
-                "ratingValue": "4.1",
-                "reviewCount": "3005"
+                "ratingValue": "4.9",
+                "reviewCount": "10432"
               }
             })
           }}

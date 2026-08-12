@@ -14,12 +14,42 @@ const beans = [
 
 export default function Hero() {
   const [offset, setOffset] = useState(0);
+  const [timeOfDay, setTimeOfDay] = useState<'morning' | 'afternoon' | 'evening'>('afternoon');
 
   useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour >= 5 && hour < 11) {
+      setTimeOfDay('morning');
+    } else if (hour >= 11 && hour < 17) {
+      setTimeOfDay('afternoon');
+    } else {
+      setTimeOfDay('evening');
+    }
+
     const onScroll = () => setOffset(window.scrollY);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const heroContent = {
+    morning: {
+      image: "url('https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=2000&auto=format&fit=crop')",
+      subtitle: "Start your morning right.",
+      desc: "Freshly roasted coffee & warm, flaky pastries to kickstart your day in the heart of Phase 8b, Mohali."
+    },
+    afternoon: {
+      image: "url('https://images.pexels.com/photos/7590623/pexels-photo-7590623.jpeg?auto=compress&cs=tinysrgb&h=1200&w=1920')",
+      subtitle: "Cafe",
+      desc: "Handcrafted coffee, wood-fired pizzas & fresh-baked treats in the heart of Phase 8b, Mohali. Cozy vibes, honest prices."
+    },
+    evening: {
+      image: "url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2000&auto=format&fit=crop')",
+      subtitle: "Unwind your evening.",
+      desc: "Wood-fired pizzas, signature mocktails, and a deeply cozy atmosphere to relax after a long day in Mohali."
+    }
+  };
+
+  const currentContent = heroContent[timeOfDay];
 
   return (
     <section id="top" className="relative min-h-[100svh] flex items-center overflow-hidden">
@@ -27,8 +57,7 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center scale-110"
         style={{
-          backgroundImage:
-            "url('https://images.pexels.com/photos/7590623/pexels-photo-7590623.jpeg?auto=compress&cs=tinysrgb&h=1200&w=1920')",
+          backgroundImage: currentContent.image,
           transform: `translateY(${offset * 0.32}px) scale(1.12)`,
         }}
         aria-hidden
@@ -75,17 +104,16 @@ export default function Hero() {
               <Star key={i} className="h-3.5 w-3.5 fill-warning" />
             ))}
           </span>
-          4.1 · 3,005 reviews · Chandigarh
+          4.9 · 10k+ reviews · Mohali
         </div>
 
         <h1 className="reveal font-display font-black text-5xl sm:text-7xl lg:text-8xl leading-[1.04] text-balance text-shadow-soft">
-          Vidhyonix Cafe
-          <span className="block text-caramel mt-1">Cafe</span>
+          Vidhyonix 
+          <span className="block text-caramel mt-1 text-4xl sm:text-6xl">{currentContent.subtitle}</span>
         </h1>
 
         <p className="reveal mt-5 font-body text-lg sm:text-xl text-cream/85 max-w-2xl mx-auto text-balance">
-          Handcrafted coffee, wood-fired pizzas &amp; fresh-baked treats in the
-          heart of Sector 10D, Chandigarh. Cozy vibes, honest prices.
+          {currentContent.desc}
         </p>
 
         <div className="reveal mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
@@ -106,7 +134,7 @@ export default function Hero() {
 
         <div className="reveal mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:text-sm text-cream/80 font-body">
           <span className="inline-flex items-center gap-1.5">
-            <MapPin className="h-4 w-4 text-caramel" /> Shop No. 2 & 3, Azaadi Rte, 10D, Sector 10
+            <MapPin className="h-4 w-4 text-caramel" /> F-452, Phase 8b, Mohali 160055
           </span>
           <span className="inline-flex items-center gap-1.5">
             <Clock className="h-4 w-4 text-caramel" /> Open · Closes 11:30 pm

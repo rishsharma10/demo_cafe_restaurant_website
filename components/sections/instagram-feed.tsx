@@ -43,11 +43,11 @@ export default function InstagramFeed() {
               Follow us on Instagram
             </p>
             <h2 className="reveal font-display font-bold text-3xl sm:text-4xl text-espresso">
-              @cafejc.chandigarh
+              @Vidhyonix.chandigarh
             </h2>
           </div>
           <a
-            href="https://instagram.com"
+            href="https://instagram.com/vidhyonix"
             target="_blank"
             rel="noopener noreferrer"
             className="reveal inline-flex items-center gap-2 rounded-full bg-accent/10 text-accent px-6 py-2.5 text-sm font-bold hover:bg-accent hover:text-white transition-colors"
